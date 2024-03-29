@@ -1,0 +1,121 @@
+
+//Requset packages:
+~~~~~~~~~~~~~~~~~~~~~~
+
+http core modules --->create a server
+
+server:
+~~~~~~~~
+-->Requset
+-->Response
+
+const http = require('http');
+
+http.createServer((Requset,Response) =>{
+
+}).listen(3500);
+
+request:
+~~~~~~~~
+Contains the incoming request stream
+
+Response:
+~~~~~~~~~~
+Contains the outgoing response stream.
+
+uses of http Modules:
+~~~~~~~~~~~~~~~~~~~~~
+    -->create a server
+    -->Make API calls to other server(https)
+
+    https.get('https://jsonplaceholder.typicode.com/todos',(resp)=>{
+
+        //response is delivered in chunks
+
+        let data = "";
+        let jsonData = null;
+
+        resp.on('data',(chucks) =>{
+            data += chucks;
+        });
+
+        resp.on('end', () =>{
+            jsonData = JSON.parse(data);
+             console.log(JSON.parse(data));
+        });
+    }).on{'Error', (err) =>{
+        console.log("Error is : " + err);
+    }};
+
+    drawbacks:
+    ~~~~~~~~~~~~~~~
+        -->data is received in chucks, which you have to attach together
+        -->Need to parse the data to convert into JSON format
+        -->Have to use HTTPS to secure the communication
+
+
+        *** overcome the drawbacks witrh requset packages:
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                --> Install the request
+                -->Require it in the code 
+                -->Syntax:
+
+                request(
+                    '<URL>',
+                    {
+                        json: true
+                    },
+                    (err, res, body) =>{
+                        if(err) {
+                            //hands the error
+                        }
+                        //json format response body
+                    }
+                )
+                Benefits:
+                ~~~~~~~~~~
+                    -->requset is simple
+                    -->supports for HTTPS
+                    -->Automatically converts the response into JSON
+                    -->callback functions has much more details
+
+
+Sending HTML Templates fro the server?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-->we can used static HTML files from the server
+
+-->can be also send dynamic HTML files from the nodeJS server ?
+
+      -->Templates Engine running on the server :
+             -->Takes input as an HTML file  containing some special tags
+             -->takes input as the data
+             -->so that output of the templates engine is dynamic Html as per the request
+
+
+-->Benefits:
+~~~~~~~~~~~
+--> improves the speed of development
+-->Easy o use and faster
+-->Less server side processing
+-->Single templates can be used for multiple purposes
+-->consistency on the Web page
+
+-->Examples of templates Engines:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     -->Handler
+     -->Ejs
+     -->Vash
+
+Ejs:
+~~~~
+Simple templating engine that lets user generates HTML pages with plain Javascript on the server side.
+    -->Easily generates the dymanic content
+    -->create real-time updates to the templates(partial view)
+    -->resuable compoments on the web pages
+
+-->Install ejs(npm ejs --save)
+-->include it in the server
+-->initialise the view engine in server with Ejs.
+-->Start rendering the response as HTML Templates
+

@@ -1,0 +1,67 @@
+Setup Transpilation:
+
+Install babel
+         --> 4 diff libraries
+
+(2) Setup the Transpilation process
+        -->make a preset
+        -->start.js  -->app.js
+
+
+
+///Data Validation:
+~~~~~~~~~~~~~~~~~~~~
+
+What if we allow users to add any data in their emailId field ?
+     -->huge issues
+     -->Inconsistent data
+     -->non usable data
+     -->no analysis can be performed
+
+app.js
+/Controllers
+/Models
+/Routes
+
+//validaton folder
+    -->Login Validation.js
+        -->username validation
+        -->password validation
+        -->terms and conditions validation
+    -->Signup validation.js
+
+    -->Product validation.js
+
+
+    ///Authentication:
+        -->process to estalish the identity
+
+        ///types of Authentication:
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        (1) Session based Authentication
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+              -->Cookies
+              -->Session is maintained both on the server and client side
+              -->server side session tracking is performed
+              -->4kb and string type string
+              -->Cookies stay until expired or manually cleared
+              -->not scalable
+
+
+        (2) Token based Authentication:
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+          --> Browser stroages
+          --> there is no server side session tracking
+          -->server is not aware of how many users are logged in 
+          -->JWT: JSON web Tokens
+          -->scalable
+            
+///JWT:
+~~~~~~
+  -->Header
+  -->payload
+  -->signture
+
+    ///Authorization:
+          -->process to grant access to the authenticated  user
+
