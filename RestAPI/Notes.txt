@@ -1,0 +1,40 @@
+//API 
+
+-->Create APIs
+
+    -->MVC
+      -->Models: Interact with DB (Mongo Driver)
+      -->Route : will expose the functionalities
+      -->Controllers : Handle the request
+
+
+      -->Test APIs using PostMan
+
+      app.js
+      /ModeJS
+      /Routes
+      /Controllers
+
+
+    Mongodb URL:
+    ~~~~~~~~~~~~
+        "mongodb+srv://sireesha:Siree@2000@cluster0.38gnkly.mongodb.net/";
+
+        router.METHOD(PATH, HANDLER);
+
+
+        mongodb password:
+        ~~~~~~~~~~~~~~~~~
+        soCImRZFZiDoLerd
+
+        sirisha
+
+
+        ///when we create so many APIs,
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+        -->for any webpage :
+           -->I need to make lot of API calls to get all the required data
+          -->I over fetch data
+          -->I will under fetch (another request to get the subsequent data)
+

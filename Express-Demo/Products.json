@@ -1,0 +1,18 @@
+[
+{
+    "name" : "iphone",
+    "price" : "$1299"
+},
+{
+    "name" : "ipad",
+    "price" : "$799"
+},
+{
+    "name" : "iMac",
+    "price" : "$3299"
+},
+{
+    "name" : "iWatch",
+    "price" : "$399"
+}
+]

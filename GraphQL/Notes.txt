@@ -1,0 +1,179 @@
+-->GraphQL:
+~~~~~~~~~~~~
+-->It is query Language for the APIs.
+-->Allows you to design your API request and response
+-->declarativly instruct the APIs to give you a specific response.
+
+
+GraphQL Types system: you can create custom types:(product types)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-->GraphQL provides the following as a Schema:
+   -->query (GET) (products API)
+   -->Mutation (POST,PUT,DELETE)  (products API)
+ 
+packages needed:
+~~~~~~~~~~~~~~~
+-->GraphQL:
+--Express
+-->Express-GraphQL
+-->GraphIQL
+-->Axios
+-->JSON-server
+
+
+///ES6
+
+Javascript === ECMA script (Es)
+
+ECMA  --> European Computer Manufauturer's Association
+      -->Agency which lays down the guidlines for browser vendors 
+      -->All the browser vendors include / create those functionalities in their respctive browser versions.
+
+
+      before 2015 -->ES5
+      2015 and beyond --> ES6 / ES2015 (it is a superset of ES5)
+
+   Features which ES6 has brought in:
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       -->Let and const keywords to create variables
+       -->Rest operator
+       -->Sperad operator
+       -->Arrow functions
+       -->Template Strings
+       -->Module exports / import
+       -->Javascript classes
+       -->Promises
+       -->Async and await
+       -->Set
+
+
+
+       var (ES5):
+       ~~~~~~~~~~~~~~~~
+            -->Hoisting 
+                console.log(num);  //undefined
+                var num = 10;
+            -->Functional scope:
+            ~~~~~~~~~~~~~~~~~~~~~
+               function abc(){
+                  console.log("Hi")
+                  {
+                  var num = 20;
+                  }
+                  console.log(num) //20
+               }
+               -->Mutable:
+               ~~~~~~~~~~~~
+                  var num = 30;
+                  num = 'Hi';
+
+
+       Let (ES6):
+       ~~~~~~~~~~~~~
+
+       -->No Hoisting
+            console.log(num);  //Error
+            let num = 10;
+      -->Block scope:
+      ~~~~~~~~~~~~~~~~
+                     function abc(){
+                  console.log("Hi")
+                  {
+                  let num = 20;
+                  console.log(num) //20
+                  }
+                  console.log(num) //Error
+               }
+
+            -->Mutable:
+            ~~~~~~~~~~~~~~
+                  let num = 30;
+                  num = 'Hi';
+
+
+       const(ES6):
+       ~~~~~~~~~~
+
+       -->No Hoisting
+         console.log(num);  //Error
+            const num = 10;
+      -->Block scope:
+      ~~~~~~~~~~~~~~~
+                     function abc(){
+                  console.log("Hi")
+                  {
+                  const num = 20;
+                  }
+                  console.log(num) //20
+               }
+
+            --> Not Mutable:
+            ~~~~~~~~~~~~~~~
+                  const num = 30;
+                  num = 'Hi'; //Error
+
+
+
+function sum(10,20){
+   return a + b;
+}
+
+ const sum = (a,b) => a + b;
+
+ 'Server up and running on port ' + port;
+
+ 'Server up and running on port ${port}';
+
+
+ let obj1 = {
+   firstName : "Sirisha"
+ }
+ let obj2 = {
+   lastName : "Aradhala" 
+ }
+ let obj3 = Object.assign(obj1,obj2); //ES5
+
+ let obj3 = {...obj1,...obj2, subject:"MERN"}; //ES6
+//ES5
+const firstName = obj3.firstName
+const lastName = obj3.lastName
+
+//ES6
+ const {firstName,lastName} = obj3; //ES6
+
+
+ //Sets: unique values
+ ~~~~~~~~~
+
+ //Async and await:
+ ~~~~~~~~~~~~~~~~~~
+ -->It makes the javascript code wait before finishing the async task.
+
+ const sum = (a,b) => {
+   setTimeout(() => {
+        return a + b;
+   },2000);
+ }
+
+ console.log(sum(10,20)); // unidefined
+
+
+  async const sum = (a,b) => {
+
+   const prom = new Promise((res,rej) =>{
+        setTimeout(() => {
+        res(a + b);
+   },2000);
+   })
+   const result = await prom; // making the js wait at this line before it can proceed with next statements
+   return result;
+ }
+sum().then().catch();
+
+//Transpilation:
+~~~~~~~~~~~~~~~~~~
+
+Not all the browser understand ES6
+code in ES6 ---> Transpilcation ---> ES5
+
+-->Babeljs (https://babejs.io/)

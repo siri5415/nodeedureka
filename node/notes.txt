@@ -1,0 +1,236 @@
+/// client-server Architecture:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Is a computing model, where the server hosts, distributes and controls the majority of the resources as well as services to be used by the client.
+
+* Such structural designs are made up of one or more client systems connected to main servers through a network(internet connection)
+client side application:
+    ->HTML
+    ->CSS
+    ->Bootstrap
+    ->Javascript (ECMA Script /ES)
+    ->React JS
+    ->Angular
+    ->React native(mobile)
+    ->VueJS
+    ->backbone
+    ->ember
+
+
+server side application:
+~~~~~~~~~~~~~~~~~~~~~~~~
+->Java
+->.next
+->Python
+->Ruby
+->PHP
+->NodeJS (to learn) pre-requisite is to have knowledge of Javascript
+
+///NodeJS
+
+
+// origin of NodeJS
+
+
+//How to install it
+
+
+//How to write our first application
+
+
+//How to run the application
+
+
+//How the code is arranged in NodeJS
+
+
+one user defined module to be imported in another user defined module.
+
+Types of modules:
+~~~~~~~~~~~~~~~~~~
+(1)core module
+(2)user defined modules
+(3)npm modules(npmjs.com)
+
+npm install / i <name_of_the_module> --save
+
+   ->node_modules folder will be created which will have all the module files and dependent module files as well us.
+   ->package-lock.json will be created to track the versions of the installed modules.
+   ->package.json will be updated with the entry of module and its version.
+
+   example: npm i nodemon --save
+   ~~~~~~~~
+            npm i nodemon@latest --save
+
+            npm i nodemon@2.0.10 --save
+
+   example: npm i express --save
+   ~~~~~~~~
+
+To install package globally,you can attach -g flag:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The package will be accessible throghout your computer
+
+e.g: npm i nodemon -g --save
+~~~~
+production: bulid pipelines
+~~~~~~~~~~~
+CI/CD
+
+
+ Not in the course:
+ ~~~~~~~~~~~~~~~~~~
+Dockerfile:
+~~~~~~~~~~
+** steps to generate a production ready bulid.
+
+heroku:
+~~~~~~~
+** cloud environment
+
+/////version control system?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+github
+SVN
+TFS
+Gitlab
+Bitbucket
+
+(1) Central repository created in github.
+
+    ->every developer needs to have access to this central repository.
+    
+(2) Every developer has to download a software: git.
+
+     ->they login to git with the same github credentials.
+
+
+     steps:
+     ~~~~~~~
+     (1)initialise your project folder with git:
+
+     >git init
+      (2)add .gitignore file, to ignore the folders and files you don't want to send to github.
+
+      (3)link the code with the github repository.
+
+      (4) code push process:
+      
+       -> add the code (to be sent to repo) to a staging area.
+         >git add .
+
+       ->attach a commit message with this staging area.
+         >git commit -m "my first commit"
+
+       ->you can push this code in staging area to the central repo.
+          >git push -u origin main.
+
+       ->git commit -m "change the files name"
+       ->git clone -uf origin main.one folder added.
+
+
+       yargs:
+       ~~~~~
+       npm i yargs --save
+
+
+File system:
+~~~~~~~~~~~~
+file system is a method of origanizing and retrieving files from a storage medium,such as a hard drive.
+
+  The node.js file system(fs) module allows to your computer
+
+  To include the file system module in your application,use the require() method
+  var fs = require('fs');
+  Every method in the fs module has synchronous as well as asychronous form.
+
+  synchronous form:
+  ~~~~~~~~~~~~~~~~~
+  * It blocks the execution of next line in program and waits till the task associated with file is completed.
+
+  * It uses synchronous key-word(in-syntax)  
+
+  *Least perffered due to blocking.
+  ex: fs.readfile("Input text")
+  ~~~
+
+  asychronous:
+  ~~~~~~~~~~~~~
+  * It doess not not block the execution program and executes the program without waiting for the completion of task 
+  associated with the file.
+  * It uses call back function.
+  * Most preffered due to the non-blocking.
+  EX:fs.readfile('input.txt',function(err,data){})
+  ~~~
+
+FS Module Operation: Open file:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*Open, *Get, *Write, *Read, *Append, *Rename, *Delete.
+It is used to open any existing file.
+
+Path:It is string carrying file name and its path.
+~~~~~
+
+* It indicates behaviour of the file to be created.
+
+* It sets the file mode only if the file was created.
+
+* It is a callback function which gets two arguments(err,data)
+
+
+** file descriptor: unique reference to the opened file.
+~~~~~~~~~~~~~~~~~~
+
+
+Number description:
+~~~~~~~~~~~~~~~~~~~~~~
+7.read,write,and execute
+6.read and write
+5.read and execute
+4.read only
+3.write and execute
+2.write only
+1.execute only
+0.no permission
+
+
+/// JSON ?
+~~~~~~~~~
+
+JSON : Javascript Object Notation
+~~~~~
+
+->It is a format for data interchange
+
+"users": [
+  {
+  "name" : "Siri",
+  "age" : 23
+  },
+  {
+    "name" : "Nava",
+    "age"  : 22
+  }
+  {
+    "name" : "Mahi",
+    "age" : 21
+  }
+]
+
+XML :
+~~~~~~
+<users>
+<user>
+     <name>Siri</name>
+     <age>23</age>
+</user>
+<user>
+     <name>Nava</name>
+     <age>22</age>
+</user>
+<user>
+    <name>Mahi</name>
+    <age>21</age>
+</user>
+</users>

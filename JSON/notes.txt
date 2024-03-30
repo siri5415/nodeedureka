@@ -1,0 +1,270 @@
+///JSON
+
+JSON format  ----( JSON.stringfy(jsonData) )----> string
+string ----( JSON.parse(str))---->Json  Format
+
+
+npm run <Script_name> --->execute the commands written in the scripts.
+
+node <file_name> --->file is getting run with the node
+
+
+///Express ?
+~~~~~~~~~~~~~~~
+  -> It is a web framework.
+  -> acts as a middleware in NodeJs.
+  -> enables the NodeJs to works as a server.
+
+///server?
+~~~~~~~~~~~~~
+  -> Takes a request(it will have a request object)
+  -> processed the request
+     ->MVC architecture
+     ->Make use of routing / routing table
+  -> sends back a response(it will have a response object)
+
+
+  ->npm i express --save
+
+
+//Routing: for a given path server can provide the resource for that path
+~~~~~~~~~~
+
+  Server address:
+  ~~~~~~~~~~~~~~~
+  http://localhost:3400
+ 
+  Login page:
+  ~~~~~~~~~~~
+  http://localhost:3400/Login
+    ->'/login' in the path
+
+  Home page:
+  ~~~~~~~~~~
+  http://localhost:3400/Home
+      ->'/Home' in the path
+
+  Product page:
+  ~~~~~~~~~~~~~
+  http://localhost:3400/Product
+       ->'/Product' in the path
+
+
+///Http verbs:
+~~~~~~~~~~~~~~~~
+get
+put
+post
+Delete
+
+//Routing table using express:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+syntax:
+~~~~~~
+app.METHOD(PATH, HANDLER);
+
+examples:
+~~~~~~~~~
+app.get('/login',loginHandler);
+app.post('/home',homeHandler);
+app.put('/product',productHandler);
+
+
+///Deployements and PM2: come back after module 4
+
+
+///Async Programming
+
+Stack?
+
+
+Call Stack?
+    ->A data structure
+    ->Last in First Out(LIFO)
+    ->Temprerily manages the stroage execution of function at run-time.
+
+const listUsers = (names) =>{
+
+  names.foreach((name) =>{
+    console.log(name)
+  })
+}
+const users = ['Siri','Nava'];
+listUsers(users);
+
+
+callback Fn ? : a function passed to another function as an arguments.
+
+
+callback  Queue ? : maintaince a list of callback functions that are ready to be executed.
+
+
+Event Loop ? : Ensure the execution of callback fn after the call stack gets empty.
+
+NodeJS Async Working?
+~~~~~~~~~~~~~~~~~~~~
+example:
+~~~~~~~
+       console.log("Welocome to the ExpressJS");
+
+       setTimeOut ( () =>{ console.log('Executed after 10 seconds')}, 1000)
+
+       setTimeOut ( () =>{ console.log('Executed after 5 seconds')},5000)
+
+       setTimeOut ( () =>{ console.log('Executed after 0 seconds')},0)
+
+       console.log("End of the execution");
+
+output:
+~~~~~~~
+     "Welocome to ExpressJS"
+     "End of the  Execution"
+     "Executed after 0 seconds"
+     "Executed after 5 seconds"
+     "Executed after 10 seconds"
+
+
+for a callback to execute:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ->It gets added to the call stack.
+   ->outer function gets executes.
+   ->This outer function calls the callback function.
+   ->callback Queue.
+   ->Event loop picks it up for execution.
+   ->Event loop will continue till the event queue is empty.
+   ->Once the call stack is empty,event loop pushed the callbacks for the execution
+
+
+callback Abstraction:
+~~~~~~~~~~~~~~~~~~~~~~
+->resuing the code
+
+   const sum = (a,b,cb) =>{
+    cb(a+b);
+   }
+
+   sum(10,20, (result) =>{
+    console.log("Sum is : " + result)
+   })
+
+
+    sum(60,24, (result) =>{
+    console.log("Sum is : " + result)
+   })
+
+
+  ///callback changing:
+  ~~~~~~~~~~~~~~~~~~~~~~
+    ->When a callback calls another callback function
+
+
+    const delay = (seconds,cb)=>{
+      setTimeOut(cb,seconds);
+    }
+
+
+    delay(2000,() =>{
+      console.log("Printed after 2 seconds");
+
+        delay(3000,() =>{
+      console.log("Printed after 3 seconds");
+
+
+        delay(5000,() =>{
+      console.log("Printed after 5 seconds");
+             })
+        })
+    })
+
+console.log("Printed after 2 seconds");
+console.log("Printed after 3 seconds");
+console.log("Printed after 5 seconds");
+
+
+///callback Hell:
+~~~~~~~~~~~~~~~~
+->at hence level it becomes unmanageable to maintain such a code.
+->christmas tree like structure while execution
+->error handling becomes difficult.
+->debugging also becomes difficult.
+
+->callback chaining  can only be used for simpler Programs
+
+
+
+///promises:
+~~~~~~~~~~~~
+->states of promises
+(1) fulfilled
+(2) rejected
+(3) pending
+(4) settled
+
+-> benefits of promises over callbacks:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   ->improves the code readability.
+   ->leads to better handling of async operations.
+   ->better control over the execution flow.
+   ->much better error handling.
+
+-> Promises:
+~~~~~~~~~~~~
+
+const prom = promise((resolve,reject)=>{
+
+const isLoggedIn = true;
+
+   //async tasks 
+
+  setTimeOut(() =>{
+
+      if (isLoggedIn){
+         resolve({username: "Sirisha" }); //to mark the fulfilled of promises
+      }else{
+        reject({error: "Not Logged In"}); // to mark the rejection of promise
+      }
+
+  }, 5000);
+
+});
+
+console.log("Promise is in pending state")
+prom.then((result) =>{
+  console.log(result);
+}).catch((err) =>{
+  console.log(err);
+}).finally(() => {
+  console.log("Promise settled")
+});
+
+
+/// How to handle all the promises
+
+promises.all([]).then().catch().finally();
+
+
+/// Promises chaining
+
+new promise((res,rej)=>{
+  res(1);
+}).then(value =>{
+  console.log("value is :" + value)
+  return value;
+}).then(value =>{
+  setTimeOut(() =>{console.log("Printed after 2 seconds"),2000})
+  return 2;
+}).then(value =>{
+  setTimeOut(() =>{console.log("Printed after 2 seconds"),2000})
+  return 2;
+}).then(value =>{
+  setTimeOut(() =>{console.log("Printed after 2 seconds"),2000})
+  return 2;
+}).then(value =>{
+  setTimeOut(() =>{console.log("Printed after 2 seconds"),2000})
+  return 2;
+}).then(value =>{
+  setTimeOut(() =>{console.log("Printed after 2 seconds"),2000})
+  return 2;
+}).catch(err => {
+  
+})

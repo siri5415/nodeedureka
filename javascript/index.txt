@@ -1,0 +1,26 @@
+javascript:
+
+(1) callback
+(2) promises
+(3)async await
+(4)reactive programming
+
+
+function sum(a,b) {
+    const add = a+b;
+    return add;
+}
+const result = sum(10,20);
+console.log(result);
+
+function sum(a,b,cb) {
+    setTimeout(() => {
+    const add = a+b;
+     cb(add);
+    }, 2000)
+}
+function printSum(s){
+console.log(s);
+}
+const result = sum(10,20,printSum);
+//console.log(result);
